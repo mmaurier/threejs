@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>threejs - basic</title>
+	<style type="text/css">
+		body{
+			margin: 0;
+			overflow: hidden;			
+		}
+		canvas{ background-color: red; }
+	</style>
+</head>
+<body>
+	<canvas id="myCanvas"></canvas>
+	<script type="text/javascript" src="three.js"></script>
+	<script type="text/javascript">
+		var renderer = new THREE.WebGLRenderer({canvas:document.getElementById('myCanvas'), antialias: true});
+		// renderer.setClearColor(0x00ff00);
+		renderer.setPixelRatio(window.devicePixelRatio);
+		renderer.setSize(window.innerWidth, window.innerHeight);
+		// document.body.appendChild(renderer.domElement);
+		var camera = new THREE.PerspectiveCamera(35, window.innerWidth/window.innerHeight, 0.1, 3000);
+		var scene = new THREE.Scene();
+		// add lights
+		var amlight = new THREE.AmbientLight(0xffffff, 0.5);
+		scene.add(amlight);
+		var polight = new THREE.PointLight(0xffffff, 0.5);
+		scene.add(polight);
+
+		//var geometry = new THREE.CubeGeometry(100,100,100);
+		// var material = new THREE.MeshBasicMaterial();
+
+		// for static or slow scene
+		var geometry = new THREE.Geometry();
+		geometry.vertices.push(
+			new THREE.Vector3(-40,40,0),
+			new THREE.Vector3(-80,-40,0),
+			new THREE.Vector3(40,-40,0)
+			);
+		geometry.faces.push( new THREE.Face3(0,1,2));
+
+		// for fast dynamic scene
+		// var geometry = new THREE.BufferGeometry();
+		// var vertices = new Float32Array([-40.0, -40.0, 0.0,
+		// 							  80.0, -40.0, 0.0,
+		// 							  40.0,  40.0, 0.0
+		// 							  ]);
+		// geometry.addAttribute('position', new THREE.BufferAttribute(vertices, 3));
+
+		var material = new THREE.MeshLambertMaterial({color: 0xF3FFE2});
+		var mesh = new THREE.Mesh(geometry, material);
+		// mesh.position.set(0,0,-1000);
+		mesh.position.z = -1000;
+
+		scene.add(mesh);
+		requestAnimationFrame(render);
+
+		function render() {
+			mesh.rotation.x += 0.01;
+			mesh.rotation.y += 0.01;
+			renderer.render(scene,camera);
+			requestAnimationFrame(render);
+		}
+		
+	</script>
+</body>
+</html>
