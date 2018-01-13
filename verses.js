@@ -1,0 +1,10 @@
+var gen5_3 = "Genesis 5:3\nWhen Adam had lived 130 years,\nhe fathered a son in his own likeness,\nafter his image, and named him Seth.";
+var gen5_6 = "Genesis 5:6\nWhen Seth had lived 105 years,\nhe fathered Enosh.";
+var gen5_9 = "Genesis 5:9\nWhen Enosh had lived 90 years,\nhe fathered Kenan.";
+var gen5_12 = "Genesis 5:12\nWhen Kenan had lived 70 years,\nhe fathered Mahalalel.";
+var gen5_15 = "Genesis 5:15\nWhen Mahalalel had lived 65 years,\nhe fathered Jared.";
+var gen5_18 = "Genesis 5:18\nWhen Jared had lived 162 years,\nhe fathered Enoch.";
+var gen5_21 = "Genesis 5:21\nWhen Enoch had lived 65 years,\nhe fathered Methuselah.";
+var gen5_25 = "Genesis 5:25\nWhen Methuselah had lived 187 years,\nhe fathered Lamech.";
+var gen5_28 = "Genesis 5:28,29\nWhen Lamech had lived 182 years,\nhe fathered ... Noah";
+var gen7_6 = "Genesis 7:6\nNoah was six hundred years old\nwhen the flood of waters came upon the earth.";
