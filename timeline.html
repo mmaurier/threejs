@@ -31,8 +31,10 @@
 
 			var camera, scene, renderer;
 			var textMesh, geometry, shape, material, loader;
-			var gen5_3TM, gen5_6TM, tile1TM;
-			var first = false, second = false; 
+			var gen5_3TM, gen5_6TM, gen5_9TM, gen5_12TM, gen5_15TM, gen5_18TM, tile1TM;
+			var gen5_21TM, gen5_25TM, gen5_28TM, gen7_6TM;
+			var first = false, second = false, third = false, fourth = false, fifth = false; 
+			var sixth = false, seventh = false, eigth = false, nineth = false, tenth = false; 
 			var color = 0xCFEBF9, color1 = 0x2382B2;
 			var counter = 0;
 
@@ -54,56 +56,148 @@
 					'fonts/gentilis_regular.typeface.json',
 					function ( font ) {
 
-						material = new THREE.MeshBasicMaterial( { color: color } );
-						shape = font.generateShapes( gen5_3, 50, 2 );
-						geometry = new THREE.ShapeGeometry( shape );
-
-						gen5_3TM = new THREE.Mesh( geometry, material );
-						gen5_3TM.position.set(-700,200,-1000);
-						scene.add( gen5_3TM );
 
 						material = new THREE.MeshBasicMaterial( { color: color1 } );
-						shape = font.generateShapes( "Years from Adam to Flood", 50, 2 );
+						shape = font.generateShapes( "Years from Adam to Flood = ", 50, 2 );
 						geometry = new THREE.ShapeGeometry( shape );
 
 						tile1TM = new THREE.Mesh( geometry, material );
 						tile1TM.position.set(-700,400,-1000);
+						// buildMesh( tile1TM, "Years from Adam to Flood = ", color1 );
 						scene.add( tile1TM );
 
+
+
 						material = new THREE.MeshBasicMaterial( { color: color } );
+						shape = font.generateShapes( gen5_3, 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						gen5_3TM = new THREE.Mesh( geometry, material );
+						gen5_3TM.position.set(-700,200,-1000);
+						scene.add( gen5_3TM );
+
+
+						// material = new THREE.MeshBasicMaterial( { color: color } );
 						shape = font.generateShapes( gen5_6, 50, 2 );
 						geometry = new THREE.ShapeGeometry( shape );
-
 						gen5_6TM = new THREE.Mesh( geometry, material );
 						gen5_6TM.position.set(-700,200,-1000);
 
+						shape = font.generateShapes( gen5_9, 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						gen5_9TM = new THREE.Mesh( geometry, material );
+						gen5_9TM.position.set(-700,200,-1000);
+
+						shape = font.generateShapes( gen5_12, 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						gen5_12TM = new THREE.Mesh( geometry, material );
+						gen5_12TM.position.set(-700,200,-1000);
+
+						shape = font.generateShapes( gen5_15, 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						gen5_15TM = new THREE.Mesh( geometry, material );
+						gen5_15TM.position.set(-700,200,-1000);
+
+						shape = font.generateShapes( gen5_18, 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						gen5_18TM = new THREE.Mesh( geometry, material );
+						gen5_18TM.position.set(-700,200,-1000);
 
 
+						shape = font.generateShapes( gen5_21, 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						gen5_21TM = new THREE.Mesh( geometry, material );
+						gen5_21TM.position.set(-700,200,-1000);
 
+						shape = font.generateShapes( gen5_25, 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						gen5_25TM = new THREE.Mesh( geometry, material );
+						gen5_25TM.position.set(-700,200,-1000);
 
+						shape = font.generateShapes( gen5_28, 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						gen5_28TM = new THREE.Mesh( geometry, material );
+						gen5_28TM.position.set(-700,200,-1000);
 
+						shape = font.generateShapes( gen7_6, 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						gen7_6TM = new THREE.Mesh( geometry, material );
+						gen7_6TM.position.set(-700,200,-1000);																		
 						requestAnimationFrame( render );
 
 						function render() {
-							// change scene
-							// textMesh.position.x += -0.5;
-							// textMesh.position.y += 0.5;
-							// console.log('x: ' + textMesh.position.x);
-							// console.log('y: ' + textMesh.position.y);
-							// if (textMesh.position.x > -2000) { textMesh.position.x += -7; }
-							// if (textMesh.position.y < 1300) { textMesh.position.y += 6; }
-							console.log(++counter);
-							if( counter === 300 ) { first = true;
-								console.log("*********************************************"); 
-							} else if ( counter == 500 ) { first = false; second = true;
-								console.log("*********************************************"); 
+
+							counter++;
+							if( counter === 300 ) { 
+								first = true;
+							} else if ( counter == 500 ) { 
+								first = false; 
+								scene.remove( gen5_3TM ); 
 								scene.add( gen5_6TM );
-							}
-							if (first) { gen5_3TM.position.x += -7; }
-							else if (second) {
-								second = false;															 	
-							 	console.log('second move');
-							}
+							} else if ( counter == 800 ) {
+								second = true;
+							} else if ( counter == 1000 ) {  
+								second = false; 
+								scene.remove( gen5_6TM ); 
+								scene.add( gen5_9TM );							
+							} else if ( counter == 1300 ) {
+								third = true;
+							} else if ( counter == 1500 ) {  
+								third = false; 
+								scene.remove( gen5_9TM ); 
+								scene.add( gen5_12TM );
+							} else if ( counter == 1800 ) {
+								fourth = true;
+							} else if ( counter == 2000 ) {  
+								fourth = false; 
+								scene.remove( gen5_12TM ); 
+								scene.add( gen5_15TM );
+							} else if ( counter == 2300 ) {
+								fifth = true;
+							} else if ( counter == 2500 ) {  
+								fifth = false; 
+								scene.remove( gen5_15TM ); 
+								scene.add( gen5_18TM );
+							} else if ( counter == 2800 ) {
+								sixth = true;
+							} else if ( counter == 3000 ) {  
+								sixth = false; 
+								scene.remove( gen5_18TM ); 
+								scene.add( gen5_21TM );
+							} else if ( counter == 3300 ) {
+								seventh = true;
+							} else if ( counter == 3500 ) {  
+								seventh = false; 
+								scene.remove( gen5_21TM ); 
+								scene.add( gen5_25TM );
+							} else if ( counter == 3800 ) {
+								eigth = true;
+							} else if ( counter == 4000 ) {  
+								eigth = false; 
+								scene.remove( gen5_25TM ); 
+								scene.add( gen5_28TM );
+							} else if ( counter == 4300 ) {
+								nineth = true;
+							} else if ( counter == 4500 ) {  
+								nineth = false; 
+								scene.remove( gen5_28TM ); 
+								scene.add( gen7_6TM );
+							} else if ( counter == 4800 ) {
+								tenth = true;
+							} else if ( counter == 5000 ) {  
+								tenth = false; 
+								scene.remove( gen7_6TM ); 
+								// scene.add( gen7_6TM );
+							}					
+							if ( first ) { gen5_3TM.position.x += -7; }
+							else if ( second ) { gen5_6TM.position.x += -7; }
+							else if ( third ) { gen5_9TM.position.x += -7; }
+							else if ( fourth ) { gen5_12TM.position.x += -7; }
+							else if ( fifth ) { gen5_15TM.position.x += -7; }
+							else if ( sixth ) { gen5_18TM.position.x += -7; }
+							else if ( seventh ) { gen5_21TM.position.x += -7; }
+							else if ( eigth ) { gen5_25TM.position.x += -7; }
+							else if ( nineth ) { gen5_28TM.position.x += -7; }
+							else if ( tenth ) { gen7_6TM.position.x += -7; }
 
 							// render scene
 							renderer.render( scene, camera );
@@ -123,7 +217,5 @@
 
 
 		</script><canvas width="1280" height="933" style="width: 1280px; height: 933px;"></canvas>
-
-	
 
 </body></html>
