@@ -30,101 +30,97 @@
 		<script>
 
 			var camera, scene, renderer;
+			var textMesh, geometry, shape, material, loader;
+			var gen5_3TM, gen5_6TM, tile1TM;
+			var first = false, second = false; 
+			var color = 0xCFEBF9, color1 = 0x2382B2;
+			var counter = 0;
 
+			init0();
 			init();
-			// animate();
-			requestAnimationFrame( render );
-			render();
 
-			function init( ) {
-
+			function init0() {
 				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
-				camera.position.set( 0, 0, 800 );
-
-				// remove mouse 3d control
-				// var controls = new THREE.OrbitControls( camera );
-				// controls.target.set( 0, 0, 0 );
-				// controls.update();
+				camera.position.set( 0, 0, 2000 );
 
 				scene = new THREE.Scene();
-				scene.background = new THREE.Color( 0x000507 );
+				scene.background = new THREE.Color( 0x000507 );				
+			}
 
-				var loader = new THREE.FontLoader();
+			function init() {
+
+				loader = new THREE.FontLoader();
 				loader.load( 
-					// 'helvetiker_regular.typeface.json',
-					// 'helvetiker_bold.typeface.json',
-					// 'optimer_bold.typeface.json',
-					// 'optimer_regular.typeface.json',
-					// 'fonts/gentilis_bold.typeface.json', 
 					'fonts/gentilis_regular.typeface.json',
 					function ( font ) {
 
-						var xMid, text;
+						material = new THREE.MeshBasicMaterial( { color: color } );
+						shape = font.generateShapes( gen5_3, 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
 
-						var textShape = new THREE.BufferGeometry();
+						gen5_3TM = new THREE.Mesh( geometry, material );
+						gen5_3TM.position.set(-700,200,-1000);
+						scene.add( gen5_3TM );
 
-						var color = 0xCFEBF9;
+						material = new THREE.MeshBasicMaterial( { color: color1 } );
+						shape = font.generateShapes( "Years from Adam to Flood", 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
 
-						var matLite = new THREE.MeshBasicMaterial( {
-							color: color,
-							transparent: false,
-							opacity: 1,
-							side: THREE.DoubleSide
-						} );
+						tile1TM = new THREE.Mesh( geometry, material );
+						tile1TM.position.set(-700,400,-1000);
+						scene.add( tile1TM );
 
-						var message = "Genesis 5:3\nWhen Adam had lived 130 years,\nhe fathered a son in his own likeness,\nafter his image, and named him Seth.";
+						material = new THREE.MeshBasicMaterial( { color: color } );
+						shape = font.generateShapes( gen5_6, 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
 
-						var shapes = font.generateShapes( gen5_3, 50, 2 );
+						gen5_6TM = new THREE.Mesh( geometry, material );
+						gen5_6TM.position.set(-700,200,-1000);
 
-						var geometry = new THREE.ShapeGeometry( shapes );
 
-						geometry.computeBoundingBox();
 
-						xMid = - 0.5 * ( geometry.boundingBox.max.x - geometry.boundingBox.min.x );
 
-						geometry.translate( xMid, 0, 0 );
 
-						// make shape ( N.B. edge view not visible )
 
-						textShape.fromGeometry( geometry );
+						requestAnimationFrame( render );
 
-						text = new THREE.Mesh( textShape, matLite );
-						text.position.z = -1000;
-						text.position.x = 0;
-						text.position.y = 0;
-						scene.add( text );
+						function render() {
+							// change scene
+							// textMesh.position.x += -0.5;
+							// textMesh.position.y += 0.5;
+							// console.log('x: ' + textMesh.position.x);
+							// console.log('y: ' + textMesh.position.y);
+							// if (textMesh.position.x > -2000) { textMesh.position.x += -7; }
+							// if (textMesh.position.y < 1300) { textMesh.position.y += 6; }
+							console.log(++counter);
+							if( counter === 300 ) { first = true;
+								console.log("*********************************************"); 
+							} else if ( counter == 500 ) { first = false; second = true;
+								console.log("*********************************************"); 
+								scene.add( gen5_6TM );
+							}
+							if (first) { gen5_3TM.position.x += -7; }
+							else if (second) {
+								second = false;															 	
+							 	console.log('second move');
+							}
 
-				} ); //end fontloader function
+							// render scene
+							renderer.render( scene, camera );
+							requestAnimationFrame( render );
+						}
+
+
+						// textMesh.translateX(400);
+					} // end anonymous function	
+				); //end fontloader function
 
 				renderer = new THREE.WebGLRenderer( { antialias: true } );
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.body.appendChild( renderer.domElement );
-
-				// remove event listener 
-				// window.addEventListener( 'resize', onWindowResize, false );
-
 			} // end init
 
-			// remove event listener function
-			// function onWindowResize() {
-
-			// 	camera.aspect = window.innerWidth / window.innerHeight;
-			// 	camera.updateProjectionMatrix();
-			// 	renderer.setSize( window.innerWidth, window.innerHeight );
-			// }
-
-			// function animate() {
-			// 	console.log('animate');
-			// 	requestAnimationFrame( animate );
-			// 	render();
-			// }
-
-			// requestAnimationFrame( render );
-			function render() {
-				renderer.render( scene, camera );
-				requestAnimationFrame( render );
-			}
 
 		</script><canvas width="1280" height="933" style="width: 1280px; height: 933px;"></canvas>
 
