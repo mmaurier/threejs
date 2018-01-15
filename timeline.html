@@ -33,6 +33,8 @@
 			var textMesh, geometry, shape, material, loader;
 			var gen5_3TM, gen5_6TM, gen5_9TM, gen5_12TM, gen5_15TM, gen5_18TM, tile1TM;
 			var gen5_21TM, gen5_25TM, gen5_28TM, gen7_6TM;
+			var sums = ["130" , "235" , "325" , "395" , "460" , "622" , "687" , "874" , "1056" , "1656"]
+			var sum130TM, sum235TM, sum325TM, sum395TM, sum460TM, sum622TM, sum687TM, sum874TM, sum1056TM, sum1656TM;
 			var first = false, second = false, third = false, fourth = false, fifth = false; 
 			var sixth = false, seventh = false, eigth = false, nineth = false, tenth = false; 
 			var color = 0xCFEBF9, color1 = 0x2382B2;
@@ -76,7 +78,7 @@
 						scene.add( gen5_3TM );
 
 
-						// material = new THREE.MeshBasicMaterial( { color: color } );
+						// text mesh for verses
 						shape = font.generateShapes( gen5_6, 50, 2 );
 						geometry = new THREE.ShapeGeometry( shape );
 						gen5_6TM = new THREE.Mesh( geometry, material );
@@ -122,6 +124,58 @@
 						geometry = new THREE.ShapeGeometry( shape );
 						gen7_6TM = new THREE.Mesh( geometry, material );
 						gen7_6TM.position.set(-700,200,-1000);																		
+						// text mesh for sums
+						shape = font.generateShapes( sums[0], 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						sum130TM = new THREE.Mesh( geometry, material );
+						sum130TM.position.set(160,400,-1000);
+						scene.add( sum130TM );
+
+						shape = font.generateShapes( sums[1], 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						sum235TM = new THREE.Mesh( geometry, material );
+						sum235TM.position.set(160,400,-1000);
+
+						shape = font.generateShapes( sums[2], 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						sum325TM = new THREE.Mesh( geometry, material );
+						sum325TM.position.set(160,400,-1000);
+
+						shape = font.generateShapes( sums[3], 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						sum395TM = new THREE.Mesh( geometry, material );
+						sum395TM.position.set(160,400,-1000);
+
+						shape = font.generateShapes( sums[4], 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						sum460TM = new THREE.Mesh( geometry, material );
+						sum460TM.position.set(160,400,-1000);
+
+						shape = font.generateShapes( sums[5], 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						sum622TM = new THREE.Mesh( geometry, material );
+						sum622TM.position.set(160,400,-1000);
+
+						shape = font.generateShapes( sums[6], 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						sum687TM = new THREE.Mesh( geometry, material );
+						sum687TM.position.set(160,400,-1000);
+
+						shape = font.generateShapes( sums[7], 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						sum874TM = new THREE.Mesh( geometry, material );
+						sum874TM.position.set(160,400,-1000);
+
+						shape = font.generateShapes( sums[8], 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						sum1056TM = new THREE.Mesh( geometry, material );
+						sum1056TM.position.set(160,400,-1000);
+
+						shape = font.generateShapes( sums[9], 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						sum1656TM = new THREE.Mesh( geometry, material );
+						sum1656TM.position.set(160,400,-1000);
+
 						requestAnimationFrame( render );
 
 						function render() {
@@ -131,56 +185,56 @@
 								first = true;
 							} else if ( counter == 500 ) { 
 								first = false; 
-								scene.remove( gen5_3TM ); 
-								scene.add( gen5_6TM );
+								scene.remove( gen5_3TM ); scene.remove( sum130TM ); 
+								scene.add( gen5_6TM ); scene.add( sum235TM );
 							} else if ( counter == 800 ) {
 								second = true;
 							} else if ( counter == 1000 ) {  
 								second = false; 
-								scene.remove( gen5_6TM ); 
-								scene.add( gen5_9TM );							
+								scene.remove( gen5_6TM ); scene.remove( sum235TM );
+								scene.add( gen5_9TM ); scene.add( sum325TM );						
 							} else if ( counter == 1300 ) {
 								third = true;
 							} else if ( counter == 1500 ) {  
 								third = false; 
-								scene.remove( gen5_9TM ); 
-								scene.add( gen5_12TM );
+								scene.remove( gen5_9TM ); scene.remove( sum325TM );
+								scene.add( gen5_12TM ); scene.add( sum395TM );
 							} else if ( counter == 1800 ) {
 								fourth = true;
 							} else if ( counter == 2000 ) {  
 								fourth = false; 
-								scene.remove( gen5_12TM ); 
-								scene.add( gen5_15TM );
+								scene.remove( gen5_12TM ); scene.remove( sum395TM );
+								scene.add( gen5_15TM ); scene.add( sum460TM );
 							} else if ( counter == 2300 ) {
 								fifth = true;
 							} else if ( counter == 2500 ) {  
 								fifth = false; 
-								scene.remove( gen5_15TM ); 
-								scene.add( gen5_18TM );
+								scene.remove( gen5_15TM ); scene.remove( sum460TM );
+								scene.add( gen5_18TM ); scene.add( sum622TM );
 							} else if ( counter == 2800 ) {
 								sixth = true;
 							} else if ( counter == 3000 ) {  
 								sixth = false; 
-								scene.remove( gen5_18TM ); 
-								scene.add( gen5_21TM );
+								scene.remove( gen5_18TM ); scene.remove( sum622TM );
+								scene.add( gen5_21TM ); scene.add( sum687TM );
 							} else if ( counter == 3300 ) {
 								seventh = true;
 							} else if ( counter == 3500 ) {  
 								seventh = false; 
-								scene.remove( gen5_21TM ); 
-								scene.add( gen5_25TM );
+								scene.remove( gen5_21TM ); scene.remove( sum687TM );
+								scene.add( gen5_25TM ); scene.add( sum874TM );
 							} else if ( counter == 3800 ) {
 								eigth = true;
 							} else if ( counter == 4000 ) {  
 								eigth = false; 
-								scene.remove( gen5_25TM ); 
-								scene.add( gen5_28TM );
+								scene.remove( gen5_25TM ); scene.remove( sum874TM );
+								scene.add( gen5_28TM );  scene.add( sum1056TM ); 
 							} else if ( counter == 4300 ) {
 								nineth = true;
 							} else if ( counter == 4500 ) {  
 								nineth = false; 
-								scene.remove( gen5_28TM ); 
-								scene.add( gen7_6TM );
+								scene.remove( gen5_28TM ); scene.remove( sum1056TM ); 
+								scene.add( gen7_6TM ); scene.add( sum1656TM ); 
 							} else if ( counter == 4800 ) {
 								tenth = true;
 							} else if ( counter == 5000 ) {  
@@ -217,5 +271,7 @@
 
 
 		</script><canvas width="1280" height="933" style="width: 1280px; height: 933px;"></canvas>
+
+	
 
 </body></html>

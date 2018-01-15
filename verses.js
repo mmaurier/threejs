@@ -8,3 +8,15 @@ var gen5_21 = "Genesis 5:21\nWhen Enoch had lived 65 years,\nhe fathered Methuse
 var gen5_25 = "Genesis 5:25\nWhen Methuselah had lived 187 years,\nhe fathered Lamech.";
 var gen5_28 = "Genesis 5:28,29\nWhen Lamech had lived 182 years,\nhe fathered ... Noah";
 var gen7_6 = "Genesis 7:6\nNoah was six hundred years old\nwhen the flood of waters came upon the earth.";
+
+var gen11_10 = "Genesis 11:10\nThese are the generations of Shem...\nhe fathered Arpachshad two years after the flood.";
+var gen11_12 = "Genesis 11:12\nWhen Arpachshad had lived 35 years,\nhe fathered Shelah";
+var gen11_14 = "Genesis 11:14\nWhen Shelah had lived 30 years,\nhe fathered Eber.";
+var gen11_16 = "Genesis 11:16\nWhen Eber had lived 34 years,\nhe fathered Peleg.";
+var gen11_18 = "Genesis 11:18\nWhen Peleg had lived 30 years,\nhe fathered Reu.";
+var gen11_20 = "Genesis 11:20\nWhen Reu had lived 32 years,\nhe fathered Serug.";
+var gen11_22 = "Genesis 11:22\nWhen Serug had lived 30 years,\nhe fathered Nahor.";
+var gen11_24 = "Genesis 11:24\nWhen Nahor had lived 29 years,\nhe fathered Terah.";
+var gen11_32 = "Genesis 11:32\nThe days of Terah were 205 years,\nand Terah died in Haran.";
+var gen21_5  = "Genesis 21:5\nAbraham was a hundred years old\nwhen his son Isaac was born to him.";
+var gen25_26 = "Genesis 25:26\nAfterward his brother came out\n... so his name was called Jacob.\n Isaac was sixty years old when she bore them\n";
