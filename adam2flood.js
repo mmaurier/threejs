@@ -8,8 +8,8 @@
 			var sum130TM, sum235TM, sum325TM, sum395TM, sum460TM, sum622TM, sum687TM, sum874TM, sum1056TM, sum1656TM;
 			// flood to exodus
 			var gen11_10TM, gen11_12TM, gen11_14TM, gen11_16TM, gen11_18TM, gen11_20TM, title2TM;
-			var gen11_22TM, gen11_24TM, gen11_32TM, gen12_1TM,  gen12_4TM,  acts7_4TM,  gen21_5TM;			
-			var gen25_26TM, gen41_46TM, gen41_47TM, gen45_4TM,  gen45_6TM,  gen45_7TM,  gen47_9TM;
+			var gen11_22TM, gen11_24TM, gen11_32TM, acts7_4TM,  gen12_1TM,  gen12_4TM,  terah_1TM;			
+			var gen21_5TM,  gen25_26TM, gen41_46TM, gen41_47TM, gen45_4TM,  gen45_6TM,  gen45_7TM,  gen47_9TM;
 			var sums1 = ["2 years" , "37 years" , "67 years" , "101 years" , "131 years" , "163 years" , "193 years" , "222 years" , "352 years" , "452 years" , "512 years"];
 			var sum2TM, sum37TM, sum67TM, sum101TM, sum131TM, sum163TM, sum193TM, sum222TM, sum352TM, sum452TM, sum512TM;
 			
@@ -41,7 +41,7 @@
 					function ( font ) {
 
 						material = new THREE.MeshBasicMaterial( { color: color1 } );
-						shape = font.generateShapes( "Years from Adam to Flood = ", 50, 2 );
+						shape = font.generateShapes( "001 From Adam to Flood = ", 50, 2 );
 						geometry = new THREE.ShapeGeometry( shape );
 
 						title1TM = new THREE.Mesh( geometry, material );
@@ -208,6 +208,68 @@
 						gen11_32TM = new THREE.Mesh( geometry, material );
 						gen11_32TM.position.set(-700,200,-1000);
 
+						shape = font.generateShapes( acts7_4, 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						acts7_4TM = new THREE.Mesh( geometry, material );
+						acts7_4TM.position.set(-700,200,-1000);
+
+						shape = font.generateShapes( gen12_1, 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						gen12_1TM = new THREE.Mesh( geometry, material );
+						gen12_1TM.position.set(-700,200,-1000);
+
+						shape = font.generateShapes( gen12_4, 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						gen12_4TM = new THREE.Mesh( geometry, material );
+						gen12_4TM.position.set(-700,200,-1000);
+
+						shape = font.generateShapes( terah_1, 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						terah_1TM = new THREE.Mesh( geometry, material );
+						terah_1TM.position.set(-700,200,-1000);
+
+
+
+						shape = font.generateShapes( gen21_5, 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						gen21_5TM = new THREE.Mesh( geometry, material );
+						gen21_5TM.position.set(-700,200,-1000);
+
+						shape = font.generateShapes( gen25_26, 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						gen25_26TM = new THREE.Mesh( geometry, material );
+						gen25_26TM.position.set(-700,200,-1000);
+
+						shape = font.generateShapes( gen41_46, 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						gen41_46TM = new THREE.Mesh( geometry, material );
+						gen41_46TM.position.set(-700,200,-1000);
+
+						shape = font.generateShapes( gen41_47, 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						gen41_47TM = new THREE.Mesh( geometry, material );
+						gen41_47TM.position.set(-700,200,-1000);
+
+						shape = font.generateShapes( gen45_4, 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						gen45_4TM = new THREE.Mesh( geometry, material );
+						gen45_4TM.position.set(-700,200,-1000);						
+
+						shape = font.generateShapes( gen45_6, 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						gen45_6TM = new THREE.Mesh( geometry, material );
+						gen45_6TM.position.set(-700,200,-1000);
+
+						shape = font.generateShapes( gen45_7, 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						gen45_7TM = new THREE.Mesh( geometry, material );
+						gen45_7TM.position.set(-700,200,-1000);
+
+						shape = font.generateShapes( gen47_9, 50, 2 );
+						geometry = new THREE.ShapeGeometry( shape );
+						gen47_9TM = new THREE.Mesh( geometry, material );
+						gen47_9TM.position.set(-700,200,-1000);
+
 						// text mesh for sums
 						material = new THREE.MeshBasicMaterial( { color: color } );
 						shape = font.generateShapes( sums1[0], 50, 2 );
@@ -269,9 +331,10 @@
 
 						function render() {
 
-							counter++;
+							// counter++;
+							counter += 2;
 							if( counter === 300 ) { 
-								states[0] = true;
+								states[0] = true; 
 							} else if ( counter == 500 ) { 
 								states[0] = false; 
 								scene.remove( gen5_3TM ); scene.remove( sum130TM ); 
@@ -374,11 +437,95 @@
 								scene.remove( gen11_20TM ); scene.remove( sum163TM );	
 								scene.add(gen11_22TM); scene.add( sum193TM );	 
 							} else if ( counter == 9000 ) {
-								states[15] = true;
+								states[16] = true;
 							} else if ( counter == 9200 ) {  
-								states[15] = false; 
+								states[16] = false; 
 								scene.remove( gen11_22TM ); scene.remove( sum193TM );	
-								scene.add(gen11_24TM); scene.add( sum222TM );	 
+								scene.add( gen11_24TM ); scene.add( sum222TM );	 
+							} else if ( counter == 9500 ) {
+								states[17] = true; 
+							} else if ( counter == 9700 ) {  
+								states[17] = false; 
+								scene.remove( gen11_24TM ); //scene.remove( sum193TM );	
+								scene.add( gen11_32TM ); //scene.add( sum222TM );	 
+							} else if ( counter == 10000 ) {
+								states[18] = true;
+							} else if ( counter == 10200 ) {  
+								states[18] = false; 
+								scene.remove( gen11_32TM ); //scene.remove( sum193TM );	
+								scene.add( acts7_4TM ); //scene.add( sum222TM );	 
+							} else if ( counter == 10500 ) {
+								states[19] = true;
+							} else if ( counter == 10700 ) {  
+								states[19] = false; 
+								scene.remove( acts7_4TM ); //scene.remove( sum193TM );	
+								scene.add( gen12_1TM ); //scene.add( sum222TM );
+							} else if ( counter == 11000 ) {
+								states[20] = true;
+							} else if ( counter == 11200 ) {  
+								states[20] = false; 
+								scene.remove( gen12_1TM ); //scene.remove( sum193TM );	
+								scene.add( gen12_4TM ); //scene.add( sum222TM );	 	 
+							} else if ( counter == 11500 ) {
+								states[21] = true;
+							} else if ( counter == 11700 ) {  
+								states[21] = false; 
+								scene.remove( gen12_4TM ); scene.remove( sum222TM );	
+								scene.add( terah_1TM ); scene.add( sum352TM );	 
+							} else if ( counter == 12000 ) {
+								states[22] = true;
+							} else if ( counter == 12200 ) {  
+								states[22] = false; 
+								scene.remove( terah_1TM ); // scene.remove( sum222TM );	
+								scene.add( gen21_5TM ); // scene.add( sum352TM );	 
+							} else if ( counter == 12500 ) {
+								states[23] = true;
+							} else if ( counter == 12700 ) {  
+								states[23] = false; 
+								scene.remove( gen21_5TM ); // scene.remove( sum222TM );	
+								scene.add( gen25_26TM ); // scene.add( sum352TM );	 
+							} else if ( counter == 13000 ) {
+								states[24] = true;
+							} else if ( counter == 13200 ) {  
+								states[24] = false; 
+								scene.remove( gen25_26TM ); // scene.remove( sum222TM );	
+								scene.add( gen41_46TM ); // scene.add( sum352TM );	 
+							} else if ( counter == 13500 ) {
+								states[25] = true;
+							} else if ( counter == 13700 ) {  
+								states[25] = false; 
+								scene.remove( gen41_46TM ); // scene.remove( sum222TM );	
+								scene.add( gen41_47TM ); // scene.add( sum352TM );	 							
+							} else if ( counter == 14000 ) {
+								states[26] = true;
+							} else if ( counter == 14200 ) {  
+								states[26] = false; 
+								scene.remove( gen41_47TM ); // scene.remove( sum222TM );	
+								scene.add( gen45_4TM ); // scene.add( sum352TM );	 
+							} else if ( counter == 14500 ) {
+								states[27] = true;
+							} else if ( counter == 14700 ) {  
+								states[27] = false; 
+								scene.remove( gen45_4TM ); // scene.remove( sum222TM );	
+								scene.add( gen45_6TM ); // scene.add( sum352TM );	 
+							} else if ( counter == 15000 ) {
+								states[28] = true;
+							} else if ( counter == 15200 ) {  
+								states[28] = false; 
+								scene.remove( gen45_6TM ); // scene.remove( sum222TM );	
+								scene.add( gen45_7TM );  // scene.add( sum352TM );	 
+							} else if ( counter == 15500 ) {
+								states[29] = true;
+							} else if ( counter == 15700 ) {  
+								states[29] = false; 
+								scene.remove( gen45_7TM ); // scene.remove( sum222TM );	
+								scene.add( gen47_9TM ); // scene.add( sum352TM );	 
+							} else if ( counter == 16000 ) {
+								// states[30] = true;
+							} else if ( counter == 16200 ) {  
+								// states[30] = false; 
+								// scene.remove( gen47_9TM ); scene.remove( sum222TM );	
+								// scene.add(  ); scene.add( sum352TM );	 
 							}
 
 							if ( states[0] ) { gen5_3TM.position.x += -7; }
@@ -401,29 +548,28 @@
 							else if ( states[16] ) { gen11_22TM.position.x += -7; }
 							else if ( states[17] ) { gen11_24TM.position.x += -7; }
 							else if ( states[18] ) { gen11_32TM.position.x += -7; }
-
-							else if ( states[19] ) { gen11_32TM.position.x += -7; }
+							else if ( states[19] ) { acts7_4TM.position.x += -7; }
 
 							else if ( states[20] ) { gen12_1TM.position.x += -7; }
-							else if ( states[22] ) { gen12_4TM.position.x += -7; }
-							else if ( states[23] ) { acts7_4TM.position.x += -7; }
-							else if ( states[24] ) { gen21_5TM.position.x += -7; }
-							else if ( states[25] ) { gen25_26TM.position.x += -7; }
-							else if ( states[26] ) { gen41_46TM.position.x += -7; }
-							else if ( states[27] ) { gen41_47TM.position.x += -7; }
-							else if ( states[28] ) { gen45_4TM.position.x += -7; }
-							else if ( states[29] ) { gen45_6TM.position.x += -7; }
+							else if ( states[21] ) { gen12_4TM.position.x += -7; }
+							else if ( states[22] ) { terah_1TM.position.x += -7; }
+							else if ( states[23] ) { gen21_5TM.position.x += -7; }
+							else if ( states[24] ) { gen25_26TM.position.x += -7; }
+							else if ( states[25] ) { gen41_46TM.position.x += -7; }
+							else if ( states[26] ) { gen41_47TM.position.x += -7; }
+							else if ( states[27] ) { gen45_4TM.position.x += -7; }
+							else if ( states[28] ) { gen45_6TM.position.x += -7; }
+							else if ( states[29] ) { gen45_7TM.position.x += -7; }
 
-							else if ( states[30] ) { gen45_6TM.position.x += -7; }
-							else if ( states[32] ) { gen45_7TM.position.x += -7; }
-							else if ( states[33] ) { gen47_9TM.position.x += -7; }
+							else if ( states[30] ) { gen47_9TM.position.x += -7; }
 
-							else if ( states[34] ) { gen21_5TM.position.x += -7; }
-							else if ( states[35] ) { gen25_26TM.position.x += -7; }
-							else if ( states[36] ) { gen41_46TM.position.x += -7; }
-							else if ( states[37] ) { gen41_47TM.position.x += -7; }
-							else if ( states[38] ) { gen45_4TM.position.x += -7; }
-							else if ( states[39] ) { gen45_6TM.position.x += -7; }							
+							else if ( states[31] ) { gen47_9TM.position.x += -7; }
+							else if ( states[32] ) { gen21_5TM.position.x += -7; }
+							else if ( states[33] ) { gen25_26TM.position.x += -7; }
+							else if ( states[34] ) { gen41_46TM.position.x += -7; }
+							else if ( states[35] ) { gen41_47TM.position.x += -7; }
+							else if ( states[36] ) { gen45_4TM.position.x += -7; }
+							else if ( states[37] ) { gen45_6TM.position.x += -7; }							
 
 							// render scene
 							renderer.render( scene, camera );
