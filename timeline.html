@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- saved from url=(0060)https://threejs.org/examples/webgl_geometry_text_shapes.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>Years from Adam Until Present</title>
 		
@@ -22,13 +21,259 @@
 	<body>
 
 		<script src="three.js"></script>
-		<script src="adam2flood.js"></script>
 		<script src="verses.js"></script>
+		<script src="variables.js"></script>
 
 		<script>
-		adam2flood();
-		// flood2exodus();
+			init();
 
-		</script><canvas width="1280" height="933" style="width: 1280px; height: 933px;"></canvas>
+			function init() {
+
+				camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 10000 );
+				camera.position.set( 0, 0, 2000 );
+
+				scene = new THREE.Scene();
+				scene.background = new THREE.Color( 0x000507 );				
+
+				loader = new THREE.FontLoader();
+				loader.load( 
+					'fonts/gentilis_regular.typeface.json',
+					function ( font ) {												
+
+						function setMeshText( txt, color, type ){
+							
+							var material = new THREE.MeshBasicMaterial( { color: color } );
+							var shape = font.generateShapes( txt, 50, 2 );
+							var geometry = new THREE.ShapeGeometry( shape );
+							var objTM = new THREE.Mesh( geometry, material );
+							if ( type == "title" ) { objTM.position.set( -700, 400, -1000 ); }
+							else if ( type == "verse" ) { objTM.position.set( -700, 200, -1000 ); }
+							else if ( type == "number" ) { objTM.position.set( 160, 400, -1000 ); }
+							
+							return objTM;
+						}
+
+						function setVerseSum( vr, sm ) {
+							move = false; 
+							scene.remove( verseTM );  
+							verseTM  = setMeshText( vr,  color0, "verse" );
+							scene.add( verseTM ); 
+							if ( sm.length != 1 ) { 
+								scene.remove( sumTM );
+								sumTM = setMeshText( sm, color0, "number" ); 
+								scene.add( sumTM );
+							}							
+						}
+
+						function setTitle( tl ) {
+							scene.remove( titleTM );  
+							titleTM  = setMeshText( tl,  color1, "title" );
+							scene.add( titleTM );							
+						}
+
+						titleTM = setMeshText( "Years from Adam to Flood = ", color1, "title" );
+						verseTM = setMeshText( gen5_3, color0, "verse" );
+						sumTM = setMeshText( sums[0], color0, "number" );
+						scene.add( titleTM );
+						scene.add( verseTM );
+						scene.add( sumTM );
+
+						requestAnimationFrame( render );
+
+						function render() {
+
+							counter += 10;
+							if( counter === 500 ) { 
+								move = true;
+							} else if ( counter == 700 ) { 
+								setVerseSum(gen5_6, sums[1]);	
+							} else if ( counter == 1000 ) {
+								move = true;
+							} else if ( counter == 1200 ) {  
+								setVerseSum(gen5_9, sums[2]);
+							} else if ( counter == 1500 ) {
+								move = true;
+							} else if ( counter == 1700 ) {  
+								setVerseSum(gen5_12, sums[3]);	
+							} else if ( counter == 2000 ) {
+								move = true;
+							} else if ( counter == 2200 ) {  
+								setVerseSum(gen5_15, sums[4]);
+							} else if ( counter == 2500 ) {
+								move = true;
+							} else if ( counter == 2700 ) {  
+								setVerseSum(gen5_18, sums[5]);
+							} else if ( counter == 3000 ) {
+								move = true;
+							} else if ( counter == 3200 ) {  
+								setVerseSum(gen5_21, sums[6]);
+							} else if ( counter == 3500 ) {
+								move = true;
+							} else if ( counter == 3700 ) {  
+								setVerseSum(gen5_25, sums[7]);
+							} else if ( counter == 4000 ) {
+								move = true;
+							} else if ( counter == 4200 ) {  
+								setVerseSum(gen5_28, sums[8]);
+							} else if ( counter == 4500 ) {
+								move = true;
+							} else if ( counter == 4700 ) {  
+ 								setVerseSum(gen7_6, sums[9]);
+							} else if ( counter == 5000 ) {
+								move = true;
+							} else if ( counter == 5200 ) {  
+
+							} else if (counter == 5700) {
+								setTitle( "Years from Flood to Exodus = " );
+								setVerseSum(gen11_10, sums1[0]); 								
+							} else if ( counter == 6000 ) {
+								move = true;
+							} else if ( counter == 6200 ) {  
+								setVerseSum( gen11_12, sums1[1] );	
+							} else if ( counter == 6500 ) {
+								move = true;
+							} else if ( counter == 6700 ) {  
+								setVerseSum( gen11_14, sums1[2] );
+							} else if ( counter == 7000 ) {
+								move = true;
+							} else if ( counter == 7200 ) {  
+								setVerseSum( gen11_16, sums1[3] );
+							} else if ( counter == 7500 ) {
+								move = true;
+							} else if ( counter == 7700 ) {  
+								setVerseSum( gen11_18, sums1[4] );
+							} else if ( counter == 8000 ) {
+								move = true;
+							} else if ( counter == 8200 ) {  
+								setVerseSum( gen11_20, sums1[5] );
+							} else if ( counter == 8500 ) {
+								move = true;
+							} else if ( counter == 8700 ) {  
+								setVerseSum( gen11_22, sums1[6] );
+							} else if ( counter == 9000 ) {
+								move = true;
+							} else if ( counter == 9200 ) {  
+ 								setVerseSum( gen11_24, sums1[7] );
+
+							} else if ( counter == 9500 ) {
+								move = true;
+							} else if ( counter == 9700 ) {  
+								setVerseSum( gen11_32, "N" );
+							} else if ( counter == 10000 ) {
+								move = true;
+							} else if ( counter == 10200 ) {  
+								setVerseSum( acts7_4, "N" );
+							} else if ( counter == 10500 ) {
+								move = true;
+							} else if ( counter == 10700 ) {  
+								setVerseSum( gen12_1, "N" );
+							} else if ( counter == 11000 ) {
+								move = true;
+							} else if ( counter == 11200 ) {  
+								setVerseSum( gen12_4, "N" );
+							} else if ( counter == 11500 ) {
+								move = true;
+							} else if ( counter == 11700 ) {  
+								setVerseSum( terah_1, sums1[8] );
+							} else if ( counter == 12000 ) {
+								move = true;
+							} else if ( counter == 12200 ) {  
+ 								setVerseSum( gen21_5, sums1[9] );
+
+
+							} else if ( counter == 12500 ) {
+								move = true;
+							} else if ( counter == 12700 ) {  
+								setVerseSum( gen25_26, sums1[10] );
+							} else if ( counter == 13000 ) {
+								move = true;
+							} else if ( counter == 13200 ) {  
+								setVerseSum( gen41_46, "N" );
+							} else if ( counter == 13500 ) {
+								move = true;
+							} else if ( counter == 13700 ) {  
+								setVerseSum( gen41_47, "N" );
+							} else if ( counter == 14000 ) {
+								move = true;
+							} else if ( counter == 14200 ) {  
+								setVerseSum( gen45_4, "N" );
+							} else if ( counter == 14500 ) {
+								move = true;
+							} else if ( counter == 14700 ) {  
+								setVerseSum( gen45_6, "N" );
+							} else if ( counter == 15000 ) {
+								move = true;
+							} else if ( counter == 15200 ) {  
+ 								setVerseSum( gen45_7, "N" );
+ 							
+
+							} else if ( counter == 15500 ) {
+								move = true;
+							} else if ( counter == 15700 ) {  
+								setVerseSum( gen47_8, "N" );
+							} else if ( counter == 16000 ) {
+								move = true;
+							} else if ( counter == 16200 ) {  
+								setVerseSum( gen47_9, "N" );
+							} else if ( counter == 16500 ) {
+								move = true;
+							} else if ( counter == 16700 ) {  
+								setVerseSum( jacob_1, "N" );
+							} else if ( counter == 17000 ) {
+								move = true;
+							} else if ( counter == 17200 ) {  
+								setVerseSum( jacob_2, sums1[11] );
+							} else if ( counter == 17500 ) {
+								move = true;
+							} else if ( counter == 17700 ) {  
+								setVerseSum( jacob_3, sums1[12]);
+							} else if ( counter == 18000 ) {
+								move = true;
+							} else if ( counter == 18200 ) {  
+ 								setVerseSum( gal3_16, "N" );
+
+							} else if ( counter == 18500 ) {
+								move = true;
+							} else if ( counter == 18700 ) {  
+								setVerseSum( gal3_17, "N" );
+							} else if ( counter == 19000 ) {
+								move = true;
+							} else if ( counter == 19200 ) {  
+								setVerseSum( ex12_20, "N" );
+							} else if ( counter == 19500 ) {
+								move = true;
+							} else if ( counter == 19700 ) {  
+								setVerseSum( lxx_1, "N" );
+							} else if ( counter == 20000 ) {
+								move = true;
+							} else if ( counter == 20200 ) {  
+								setVerseSum( sog_1, "N" );
+							} else if ( counter == 20500 ) {
+								move = true;
+							} else if ( counter == 20700 ) {  
+								setVerseSum( sog_2, "N" );
+							} else if ( counter == 21000 ) {
+								move = true;
+							} else if ( counter == 21200 ) {  
+								setVerseSum( sog_3, sums1[13] );
+							}
+
+							if ( move ) { verseTM.position.x += -7; }
+
+							// render scene
+							renderer.render( scene, camera );
+							requestAnimationFrame( render );
+
+						} // end render()
+					} // end function ( font ) {...} function
+				); // end loader.load(...)
+
+				renderer = new THREE.WebGLRenderer( { antialias: true } );
+				renderer.setPixelRatio( window.devicePixelRatio );
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				document.body.appendChild( renderer.domElement );
+			} // end init()
+
+		</script><canvas width="1280" height="933" style="width: 1280px; height: 933px;"></canvas>	
 
 </body></html>
