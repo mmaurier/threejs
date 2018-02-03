@@ -75,4 +75,12 @@ var twokng23_31 = "2 King 23:31\nJehoahaz was twenty-three years old when he beg
 var twokng23_36 = "2 King 23:36\n Jehoiakim was twenty-five years old when he began to reign,\nand he reigned eleven years in Jerusalem.";
 var twokng24_8  = "2 King 24:8\nJehoiachin was eighteen years old when he became king,\nand he reigned three months in Jerusalem.";
 var twokng24_18 = "2 King 24:18\n Zedekiah was twenty-one years old when he became king,\nand he reigned eleven years in Jerusalem.";
-
+// exile to start of common era
+var ce_1 = "Captivity started in 587 BC";
+var ce_2 = "Common era starts at year 1";
+var ce_3 = "Add only one year between 1 BCE and 1 CE";
+var ce_4 = "Remove one year from 587 BC";
+var ce_5 = "From start of CE to today there are 2018 years";
+var ce_6 = "";
+var ce_7 = "";
+// start of common era to today
