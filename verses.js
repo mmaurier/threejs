@@ -25,14 +25,14 @@ var acts7_4 = "Acts 7:2,4\nAbraham ... lived in Haran\n... after his father died
 var terah_1 = "Terah died when he was 205.\nAbraham left Haran when Terah died.\nAbraham was 75 years old when he left Haran.\nTerah was 130 when he fathered Abraham.";
 
 var gen21_5 = "Genesis 21:5\nAbraham was a hundred years old\nwhen his son Isaac was born to him.";
-var gen25_26 = "Genesis 25:26\nAfterward his brother came out\n... so his name was called Jacob.\n Isaac was sixty years old when she bore them\n";
+var gen25_26 = "Genesis 25:26\nAfterward his brother came out\n... so his name was called Jacob.\nIsaac was sixty years old when she bore them\n";
 // explain Jacob's age when Joseph was born
 var gen41_46 = "Genesis 41:46\nJoseph was thirty years old when\nhe entered the service of Pharaoh king of Egypt.";
-var gen41_47 = "Genesis 41:47-48\n During the seven plentiful years\nthe earth produced abundantly,";
+var gen41_47 = "Genesis 41:47-48\nDuring the seven plentiful years\nthe earth produced abundantly,";
 var gen45_4 = "Genesis 45:4\nSo Joseph said to his brothers,\n\"Come near to me, please.\"";
-var gen45_6 = "Genesis 45:6\nFor the famine has been in the land\nthese two years,and there are yet\n five years in which there will be\nneither plowing nor harvest.\n";
+var gen45_6 = "Genesis 45:6\nFor the famine has been in the land\nthese two years,and there are yet\nfive years in which there will be\nneither plowing nor harvest.\n";
 var gen45_7 = "Genesis 45:7\nAnd God sent me before you\nto preserve for you a remnant on earth,\nand to keep alive for you many survivors.";
-var gen47_8 = "Genesis 47:8\n And Pharaoh said to Jacob,\n\"How many are the days of the years of your life?\"";
+var gen47_8 = "Genesis 47:8\nAnd Pharaoh said to Jacob,\n\"How many are the days of the years of your life?\"";
 var gen47_9 = "Genesis 47:9\nAnd Jacob said to Pharaoh,\n\"The days of the years of my sojourning are 130 years.\"";
 var jacob_1 = "Joseph was 30 when he became governor in Egypt.\nSeven years passed during the time of abundance.\nJacob move to Egypt the second year of famine.\n";
 var jacob_2 = "Joseph was 39 when Jacob move to Egypt.\nJacob was 130 when he moved to Egypt.\nJacob was 91 when Joseph was born.";
@@ -57,7 +57,7 @@ var solm_3 = "The temple was finished in Solomon's\n11th year as a king.\nAfter 
 // solomon to exile
 var onekng14_21 = "1 King 14:21\nNow Rehoboam the son of Solomon reigned in Judah.\nRehoboam was forty-one years old when he began to reign,\nand he reigned seventeen years in Jerusalem";
 var onekng15_1  = "1 King 15:1\nNow in the eighteenth year of King Jeroboam the son of Nebat,\nAbijam began to reign over Judah.\nHe reigned for three years in Jerusalem.";
-var onekng15_9  = "1 King 15:9\n In the twentieth year of Jeroboam king of Israel,\nAsa began to reign over Judah";
+var onekng15_9  = "1 King 15:9\nIn the twentieth year of Jeroboam king of Israel,\nAsa began to reign over Judah";
 var onekng22_42 = "1 King 22:42\nJehoshaphat was thirty-five years old when he began to reign,\nand he reigned twenty-five years in Jerusalem.\nHis mother's name was Azubah the daughter of Shilhi.";
 var twokng8_17  = "1 King 8:17\nHe was thirty-two years old when he became king,\nand he reigned eight years in Jerusalem.";
 var twokng8_26  = "1 King 8:26\nAhaziah was twenty-two years old\nwhen he began to reign,\nand he reigned one year in Jerusalem.";
@@ -69,12 +69,12 @@ var twokng15_33 = "2 King 15:33\nHe was twenty-five years old when he began to r
 var twokng16_2  = "2 King 16:2\nAhaz was twenty years old when he began to reign,\nand he reigned sixteen years in Jerusalem.";
 var twokng18_2  = "2 King 18:2\nHe was twenty-five years old when he began to reign,\nand he reigned twenty-nine years in Jerusalem.";
 var twokng21_1  = "2 King 21:1\nManasseh was twelve years old when he began to reign,\nand he reigned fifty-five years in Jerusalem.";
-var twokng21_19 = "2 King 21:19\n Amon was twenty-two years old when he began to reign,\nand he reigned two years in Jerusalem.";
+var twokng21_19 = "2 King 21:19\nAmon was twenty-two years old when he began to reign,\nand he reigned two years in Jerusalem.";
 var twokng22_1  = "2 King 22:1\nJosiah was eight years old when he began to reign,\nand he reigned thirty-one years in Jerusalem.";
 var twokng23_31 = "2 King 23:31\nJehoahaz was twenty-three years old when he began to reign,\nand he reigned three months in Jerusalem.";
-var twokng23_36 = "2 King 23:36\n Jehoiakim was twenty-five years old when he began to reign,\nand he reigned eleven years in Jerusalem.";
+var twokng23_36 = "2 King 23:36\nJehoiakim was twenty-five years old when he began to reign,\nand he reigned eleven years in Jerusalem.";
 var twokng24_8  = "2 King 24:8\nJehoiachin was eighteen years old when he became king,\nand he reigned three months in Jerusalem.";
-var twokng24_18 = "2 King 24:18\n Zedekiah was twenty-one years old when he became king,\nand he reigned eleven years in Jerusalem.";
+var twokng24_18 = "2 King 24:18\nZedekiah was twenty-one years old when he became king,\nand he reigned eleven years in Jerusalem.";
 // exile to start of common era
 var ce_1 = "Captivity started in 587 BC";
 var ce_2 = "Common era starts at year 1";
