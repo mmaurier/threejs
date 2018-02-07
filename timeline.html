@@ -40,6 +40,52 @@
 					'fonts/gentilis_regular.typeface.json',
 					function ( font ) {												
 
+						function setFinalMeshText( txt, color, x, y ){
+							
+							var material = new THREE.MeshBasicMaterial( { color: color } );
+							var shape = font.generateShapes( txt, 50 );
+							var geometry = new THREE.ShapeGeometry( shape );
+                            var objTM = new THREE.Mesh( geometry, material );
+                            objTM.material.transparent = true;
+							objTM.position.set( x, y, -1000 );
+							
+							return objTM;
+						}
+
+						function setFinal() {
+							title0TM = setFinalMeshText( titles[0], color1, -700, 500 );
+							scene.add( title0TM );
+							gt0TM = setFinalMeshText( grandTotals[0], color0, 400, 500 );
+							scene.add( gt0TM );
+							title1TM = setFinalMeshText( titles[1], color1, -700, 400 );
+							scene.add( title1TM );
+							gt1TM = setFinalMeshText( grandTotals[1], color0, 400, 400 );
+							scene.add( gt1TM );
+							title2TM = setFinalMeshText( titles[2], color1, -700, 300 );
+							scene.add( title2TM );
+							gt2TM = setFinalMeshText( grandTotals[2], color0, 400, 300 );
+							scene.add( gt2TM );							
+							title3TM = setFinalMeshText( titles[3], color1, -700, 200 );
+							scene.add( title3TM );
+							gt3TM = setFinalMeshText( grandTotals[3], color0, 400, 200 );
+							scene.add( gt3TM );
+
+							title4TM = setFinalMeshText( titles[4], color1, -700, 100 );
+							scene.add( title4TM );
+							gt4TM = setFinalMeshText( grandTotals[4], color0, 400, 100 );
+							scene.add( gt4TM );							
+							title5TM = setFinalMeshText( titles[5], color1, -700, 0 );
+							scene.add( title5TM );
+							gt5TM = setFinalMeshText( grandTotals[5], color0, 400, 0 );
+							scene.add( gt5TM );
+
+							title6TM = setFinalMeshText( titles[6], color1, -700, -100 );
+							scene.add( title6TM );
+							gt6TM = setFinalMeshText( grandTotals[6], color0, 400, -100 );
+							scene.add( gt6TM );
+
+						}
+
 						function setMeshText( txt, color, type ){
 							
 							var material = new THREE.MeshBasicMaterial( { color: color } );
@@ -90,7 +136,7 @@
                         scene.add( totalTM );
 
 						requestAnimationFrame( render );
-
+						tlIdx = 5;
 						function render() {                            
     
 							counter += 1;
@@ -460,8 +506,15 @@
 									tlIdx++; counter = 0; 
 									freezeTotal = false; 
 									fadeTitleTotal = false;
+
 								}
 							}
+							////////////////////////////////////
+							// From Adam to Today
+							////////////////////////////////////
+							if ( tlIdx == 6 ){
+								setFinal();
+							}							
 							////////////////////////////////////
 							// Fade FX 
 							////////////////////////////////////
