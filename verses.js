@@ -80,7 +80,14 @@ var ce_1 = "Captivity started in 587 BC";
 var ce_2 = "Common era starts at year 1";
 var ce_3 = "Add only one year between 1 BCE and 1 CE";
 var ce_4 = "Remove one year from 587 BC";
-var ce_5 = "From start of CE to today there are 2018 years";
+var ce_5 = "From start of CE until today there are 2018 years";
 var ce_6 = "";
 var ce_7 = "";
-// start of common era to today
+// questions
+var q1 = "When did God's Day of Rest start?\nIn what year?";
+var q2 = "What is the relation between\nGod's seven creation days\nand our seven day week?";
+var q3 = "What are the parallels between the first Adam\nand the second Adam, Jesus Christ?";
+var q4 = "";
+var q5 = "";
+var q6 = "";
+

@@ -2,6 +2,7 @@ var camera, scene, loader, renderer;
 var titleTM, verseTM, sumTM, totalTM;
 var title0TM, title1TM, title2TM, title3TM, title4TM, title5TM, title6TM;
 var gt0TM, gt1TM, gt2TM, gt3TM, gt4TM, gt5TM, gt6TM;
+var q1TM, q2TM, q3TM;
 var grandTotals = ["1656","857","516","393","586","2018","6026"];
 var sums0 = [ "130" , 
              "105  +   130  =  235" , 
@@ -50,22 +51,23 @@ var sums3 = [ "17" ,
               "11  +  371   =  382",
               "3 month  +  382 = 382",
               "11  +  382  =  393" ];  
-var sums4 = ["587","-1 + 587 = 586","2018", "6026"];  
+var sums4 = [ "587","-1 + 587 = 586","2018", "6026" ];  
 
-var total0 = ["130 years","235 years","325 years","395 years","460 years","622 years","687 years","874 years","1056 years","1656 years"];
-var total1 = ["2 years","37 years","67 years","101 years","131 years","163 years","193 years","222 years","352 years","452 years","512 years","603 years","642 years","857 years"];
-var total2 = ["480 years","487 years","516 years"];
-var total3 = ["17 years","20 years","61 years","85 years","94 years","95 years","101 years","141 years","170 years","222 years","238 years","254 years","283 years","338 years","340 years","371 years","371 years","382 years","382 years","393 years"];             
-var total4 = ["587 years","586 years","2018"];          
+var total0 = [ "130 years","235 years","325 years","395 years","460 years","622 years","687 years","874 years","1056 years","1656 years" ];
+var total1 = [ "2 years","37 years","67 years","101 years","131 years","163 years","193 years","222 years","352 years","452 years","512 years","603 years","642 years","857 years" ];
+var total2 = [ "480 years","487 years","516 years" ];
+var total3 = [ "17 years","20 years","61 years","85 years","94 years","95 years","101 years","141 years","170 years","222 years","238 years","254 years","283 years","338 years","340 years","371 years","371 years","382 years","382 years","393 years" ];             
+var total4 = [ "587 years","586 years","2018 years" ];          
                         
-var titles = [  "Years from Adam to the Flood:", 
-                "Years from the Flood to Exodus:" , 
-                "Years from Exodus to Solomon:", 
-                "From King Solomon to the Exile:", 
-                "From the Exile to Common Era:", 
-                "From Start of Common Era to Today:",
-                "Years from Adam until Today:",
-                "Years Since the Creation of Adam:" ];           
+var titles = [ "Years from Adam until the Flood:", 
+               "Years from the Flood until Exodus:", 
+               "Years from Exodus until Solomon:", 
+               "Years from Solomon until the Exile:", 
+               "Years from the Exile until Common Era:", 
+               "Years from Start of Common Era until Today:",
+               "Years from the Creation of Adam until Today:",
+               "Years from Adam until Today:",
+               "From  1 Common Era  until Today:" ];        
 var fadeVerseSum = false; 
 var fadeSum = true;
 var freezeTotal = false;
@@ -75,7 +77,7 @@ var color0 = 0xCFEBF9, color1 = 0x2382B2;
 var counter = 0;
 var tlIdx = 0;
 
-var cArr = [100,500,600,1000,
+var cArr = [ 100,500,600,1000,
             1100,1500,1600,2000,
             2100,2500,2600,3000,
             3100,3500,3600,4000,
@@ -85,21 +87,22 @@ var cArr = [100,500,600,1000,
             7100,7500,7600,8000,
             8100,8500,8600,9000,
             9100,9500,9600,10000,
-            10100,10500,10600,11000,
-            11100,11500,11600,12000,
-            12100,12500,12600,13000,
-            13100,13500,13600,14000,
-            14100,14500,14600,15000,
-            15100,15500,15600,16000,
-            16100,16500,16600,17000,
-            17100,17500,17600,18000,
-            18100,18500,18600,19000,
-            19100,19500,19600,20000,
-            20100,20500,20600,21000,
-            21100,21500,21600,22000,
-            22100,22500,22600,23000,
-            23100,23500,23600,24000,
-            24100,24500,24600,25000,
-            25100,25500,25600,26000,
-            100,500,600,27000,100,500,600,1000,100,500,600,1000,100,500,600,1000,
-            100,500,600,1000,100,500,600,1000,100,500,600,1000,100,500,600,1000,100,500,600,1000];
+           10100,10500,10600,11000,
+           11100,11500,11600,12000,
+           12100,12500,12600,13000,
+           13100,13500,13600,14000,
+           14100,14500,14600,15000,
+           15100,15500,15600,16000,
+           16100,16500,16600,17000,
+           17100,17500,17600,18000,
+           18100,18500,18600,19000,
+           19100,19500,19600,20000,
+           20100,20500,20600,21000,
+           21100,21500,21600,22000,
+           22100,22500,22600,23000,
+           23100,23500,23600,24000,
+           24100,24500,24600,25000,
+           25100,25500,25600,26000,
+             100,500,600,27000,100,500,600,1000,100,500,600,1000,100,500,600,1000,
+             100,500,600,1000,100,500,600,1000,100,500,600,1000,100,500,600,1000,100,500,600,1000 ];
+var interval01 = [ 200,400,600,800,1000,1200,1400,2000 ];

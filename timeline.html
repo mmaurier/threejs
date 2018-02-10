@@ -46,43 +46,49 @@
 							var shape = font.generateShapes( txt, 50 );
 							var geometry = new THREE.ShapeGeometry( shape );
                             var objTM = new THREE.Mesh( geometry, material );
+							
                             objTM.material.transparent = true;
+							objTM.material.opacity = 0;
 							objTM.position.set( x, y, -1000 );
 							
 							return objTM;
 						}
 
 						function setFinal() {
-							title0TM = setFinalMeshText( titles[0], color1, -700, 500 );
+							title0TM = setFinalMeshText( titles[0], color1, -600, 500 );
 							scene.add( title0TM );
-							gt0TM = setFinalMeshText( grandTotals[0], color0, 400, 500 );
+							gt0TM = setFinalMeshText( grandTotals[0], color0, 403, 500 );
 							scene.add( gt0TM );
-							title1TM = setFinalMeshText( titles[1], color1, -700, 400 );
+							title1TM = setFinalMeshText( titles[1], color1, -640, 400 );
 							scene.add( title1TM );
-							gt1TM = setFinalMeshText( grandTotals[1], color0, 400, 400 );
+							gt1TM = setFinalMeshText( grandTotals[1], color0, 440, 400 );
 							scene.add( gt1TM );
-							title2TM = setFinalMeshText( titles[2], color1, -700, 300 );
+							title2TM = setFinalMeshText( titles[2], color1, -618, 300 );
 							scene.add( title2TM );
-							gt2TM = setFinalMeshText( grandTotals[2], color0, 400, 300 );
+							gt2TM = setFinalMeshText( grandTotals[2], color0, 440, 300 );
 							scene.add( gt2TM );							
-							title3TM = setFinalMeshText( titles[3], color1, -700, 200 );
+							title3TM = setFinalMeshText( titles[3], color1, -665, 200 );
 							scene.add( title3TM );
-							gt3TM = setFinalMeshText( grandTotals[3], color0, 400, 200 );
+							gt3TM = setFinalMeshText( grandTotals[3], color0, 440, 200 );
 							scene.add( gt3TM );
 
-							title4TM = setFinalMeshText( titles[4], color1, -700, 100 );
+							title4TM = setFinalMeshText( titles[4], color1, -770, 100 );
 							scene.add( title4TM );
-							gt4TM = setFinalMeshText( grandTotals[4], color0, 400, 100 );
+							gt4TM = setFinalMeshText( grandTotals[4], color0, 440, 100 );
 							scene.add( gt4TM );							
-							title5TM = setFinalMeshText( titles[5], color1, -700, 0 );
+							title5TM = setFinalMeshText( titles[5], color1, -928, 0 );
 							scene.add( title5TM );
-							gt5TM = setFinalMeshText( grandTotals[5], color0, 400, 0 );
+							gt5TM = setFinalMeshText( grandTotals[5], color0, 403, 0 );
 							scene.add( gt5TM );
 
-							title6TM = setFinalMeshText( titles[6], color1, -700, -100 );
+							title6TM = setFinalMeshText( titles[6], color1, -938, -100 );
 							scene.add( title6TM );
-							gt6TM = setFinalMeshText( grandTotals[6], color0, 400, -100 );
+							gt6TM = setFinalMeshText( grandTotals[6], color0, 403, -100 );
 							scene.add( gt6TM );
+
+							q1TM = setFinalMeshText( q1, color1, -600, 500 ); scene.add( q1TM );
+							q2TM = setFinalMeshText( q2, color1, -600, 500 ); scene.add( q2TM );
+							q3TM = setFinalMeshText( q3, color1, -600, 500 ); scene.add( q3TM );
 
 						}
 
@@ -496,7 +502,7 @@
 							////////////////////////////////////
 							if ( tlIdx == 5 ){
 								if ( counter == cArr[0] ) {							
-									setTitle( titles[5] );
+									setTitle( titles[8] );
 									setVerseSum( ce_5, sums4[2], total4[2] );																
 								} else if ( counter == cArr[1] ){
 									fadeVerseSum = true; freezeTotal = true;
@@ -514,7 +520,137 @@
 							////////////////////////////////////
 							if ( tlIdx == 6 ){
 								setFinal();
-							}							
+								tlIdx++; counter = 0;								
+							} else if ( tlIdx == 7 ) {
+								title0TM.material.opacity += 0.01;
+								gt0TM.material.opacity += 0.01;							
+								if ( title0TM.material.opacity > 1 ) {
+									tlIdx++; counter = 0;
+								} 
+							} else if ( tlIdx == 8 ) {
+								title1TM.material.opacity += 0.01;
+								gt1TM.material.opacity += 0.01;								
+								if ( title1TM.material.opacity > 1 ) {
+									tlIdx++; counter = 0;
+								} 
+							} else if ( tlIdx == 9 ) {
+								title2TM.material.opacity += 0.01;
+								gt2TM.material.opacity += 0.01;								
+								if ( title2TM.material.opacity > 1 ) {
+									tlIdx++; counter = 0;
+								} 
+							} else if ( tlIdx == 10 ) {
+								title3TM.material.opacity += 0.01;
+								gt3TM.material.opacity += 0.01;								
+								if ( title3TM.material.opacity > 1 ) {
+									tlIdx++; counter = 0;
+								} 
+							} else if ( tlIdx == 11 ) {
+								title4TM.material.opacity += 0.01;
+								gt4TM.material.opacity += 0.01;								
+								if ( title4TM.material.opacity > 1 ) {
+									tlIdx++; counter = 0;
+								} 
+							} else if ( tlIdx == 12 ) {
+								title5TM.material.opacity += 0.01;
+								gt5TM.material.opacity += 0.01;								
+								if ( title5TM.material.opacity > 1 ) {
+									tlIdx++; counter = 0;
+								} 
+							} else if ( tlIdx == 13 ) {
+								title6TM.material.opacity += 0.01;
+								gt6TM.material.opacity += 0.01;								
+								if ( title6TM.material.opacity > 1 ) {
+									tlIdx++; counter = 0;
+								} 
+							////////////////////////////////////
+							// fade all but last
+							////////////////////////////////////
+							} else if ( tlIdx == 14 ) {
+								if (counter >= 500 ) {
+									title0TM.material.opacity -= 0.01;
+									gt0TM.material.opacity -= 0.01;							
+									if ( title0TM.material.opacity < 0.01 ) {
+										tlIdx++; counter = 0;
+									} 
+								}
+							} else if ( tlIdx == 15 ) {
+								title1TM.material.opacity -= 0.01;
+								gt1TM.material.opacity -= 0.01;								
+								if ( title1TM.material.opacity < 0.01 ) {
+									tlIdx++; counter = 0;
+								} 
+							} else if ( tlIdx == 16 ) {
+								title2TM.material.opacity -= 0.01;
+								gt2TM.material.opacity -= 0.01;								
+								if ( title2TM.material.opacity < 0.01 ) {
+									tlIdx++; counter = 0;
+								} 
+							} else if ( tlIdx == 17 ) {
+								title3TM.material.opacity -= 0.01;
+								gt3TM.material.opacity -= 0.01;								
+								if ( title3TM.material.opacity < 0.01 ) {
+									tlIdx++; counter = 0;
+								} 
+							} else if ( tlIdx == 18 ) {
+								title4TM.material.opacity -= 0.01;
+								gt4TM.material.opacity -= 0.01;								
+								if ( title4TM.material.opacity < 0.01 ) {
+									tlIdx++; counter = 0;
+								} 
+							} else if ( tlIdx == 19 ) {
+								title5TM.material.opacity -= 0.01;
+								gt5TM.material.opacity -= 0.01;							
+								if ( title5TM.material.opacity < 0.01 ) {
+									tlIdx++; counter = 0;
+								} 
+							} else if ( tlIdx == 20 ) {
+								if ( counter >= 500) {
+									title6TM.material.opacity -= 0.01;
+									gt6TM.material.opacity -= 0.01;								
+									if ( title6TM.material.opacity < 0.01 ) {
+										tlIdx++; counter = 0;
+									} 
+								}
+							} else if ( tlIdx == 21 ) {
+								q1TM.material.opacity += 0.01;								
+								if ( q1TM.material.opacity > 1 ) {
+									tlIdx++; counter = 0;
+								} 
+							} else if ( tlIdx == 22 ) {
+								if ( counter >= 500 ) { 
+									q1TM.material.opacity -= 0.01;								
+									if ( q1TM.material.opacity < 0.01 ) {
+										tlIdx++; counter = 0;
+									} 
+								}
+							} else if ( tlIdx == 23 ) {
+								q2TM.material.opacity += 0.01;								
+								if ( q2TM.material.opacity > 1 ) {
+									tlIdx++; counter = 0;
+								} 
+							} else if ( tlIdx == 24 ) {
+								if ( counter >= 500 ) { 
+									q2TM.material.opacity -= 0.01;								
+									if ( q2TM.material.opacity < 0.01 ) {
+										tlIdx++; counter = 0;
+									} 
+								}
+							} else if ( tlIdx == 25 ) {
+								q3TM.material.opacity += 0.01;								
+								if ( q3TM.material.opacity > 1 ) {
+									tlIdx++; counter = 0;
+								} 
+							} else if ( tlIdx == 26 ) {
+								if ( counter >= 500 ) { 
+									q3TM.material.opacity -= 0.01;								
+									if ( q3TM.material.opacity < 0.01 ) {
+										tlIdx++; counter = 0;
+									} 
+								}
+							}
+
+								
 							////////////////////////////////////
 							// Fade FX 
 							////////////////////////////////////
